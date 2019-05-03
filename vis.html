@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>VIS</title>
+		<link rel="stylesheet" type="text/css" href="assets/vis/vis.min.css" />
+		<link rel="stylesheet" type="text/css" href="assets/vis/vis-network.min.css" />
+	</head>
+
+	<body>
+		<div id="network" style="height: 600px;width: 100%;">
+
+		</div>
+	</body>
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="assets/vis/vis-network.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var options = {
+			physics: {
+				enabled: false
+			},
+			nodes:{
+				font:{color:"#868E8E"}
+			}
+		}
+		var nodes = new vis.DataSet([{id: "A1",label: "A1",shape: "image",image: "img/app.png"}]);
+		nodes.add({id: "A2",label: "A2",shape: "image",image: "img/app.png",title:"Tooltip"/**/});
+		var edges = new vis.DataSet();
+		edges.add({from:"A1",to:"A2"})
+		var data = {
+			nodes:nodes,
+			edges:edges
+		}
+		var container = document.getElementById('network');
+		network = new vis.Network(container, data, options);
+		network.on("click", function(e) {
+			console.log(network.getPositions())
+
+		})
+		
+	</script>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="assets/jtable/jquery.dataTables.min.css" />
+		<style>
+			.dataTables_filter label input{border-color: red;}
+			.dataTables_filter label:placeholder{content="sdf";}
+		</style>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="assets/jtable/jquery.dataTables.min.js" type="text/javascript" charset="utf-8"></script>
+	<link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/c/video.js"></script>
+	</head>
+	<body>
+		<button onclick="loadData()">LoadData</button>
+		<table id="testTable" class="display" style="width:100%">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Position</th>
+				</tr>
+			</thead>
+			<tbody ></tbody>
+		</table>
+    <video id="video1" class="video-js vjs-default-skin" width="640" height="480"
+        data-setup='{"controls" : true, "autoplay" : false, "preload" : "auto"}'>
+        <source src="v/v-jquery-table.flv" type="video/x-flv">
+    </video>
+	</body>
+	<script src="js/table.js" type="text/javascript" charset="utf-8"></script>
+	<script type="application/javascript">
+		$(function(){
+			var html = $(".dataTables_filter label input")
+			$(".dataTables_filter label").html('');
+			$(".dataTables_filter label").append(html);
+			$(".dataTables_filter label input").attr("placeholder","搜索")
+		})
+	</script>
+</html>
